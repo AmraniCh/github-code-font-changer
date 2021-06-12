@@ -1,0 +1,15 @@
+{
+  "name": "Github Code Font Changer",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/*"],
+      "js": ["src/index.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "src/index.html"
+  },
+  "permissions": ["activeTab"]
+}
