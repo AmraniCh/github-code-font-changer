@@ -1,23 +1,27 @@
-body {
-    /*background-color: #eee;*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 form {
     width: 350px;
     background-color: #fff;
-    padding: 0 10px 10px 0;
 }
 
 .title {
     text-align: center;
-    color: #ff7675;
-    font-size: 2.5rem;
+    color: #fff;
+    background-color: #222;
+    font-size: 2rem;
     text-transform: uppercase;
     margin-bottom: 25px;
+    padding: 5px 10px;
 }
 
 .input-field {
     margin-bottom: 15px;
+    padding: 0 8px;
 }
 
 .input-field .label {
@@ -28,7 +32,7 @@ form {
 
 .input-field .control {
     padding: 7px;
-    width: 95%;
+    width: 100%;
 }
 
 .input-field input.control {
@@ -42,13 +46,18 @@ form {
 }
 
 #changeBtn {
-    display: block;
-    margin: 0 auto;
+    width: 100%;
     background-color: rgb(9 132 227);
-    padding: 8px 20px;
+    padding: 12px 20px;
     color: rgb(255 255 255);
     border-radius: 2px;
     border: none;
     cursor: pointer;
     margin-top: 35px;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+}
+
+#changeBtn:hover {
+    opacity: .8;
 }

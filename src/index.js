@@ -1,10 +1,16 @@
+const applyBtn = document.querySelector('#changeBtn'),
+    fontFamilyInput = document.querySelector('#font_family');
+
 addEvent(document, 'DOMContentLoaded', function () {
-    addEvent('#changeBtn', 'click', function () {
-        var fonts = document.querySelementctor('#font_family').value;
-        if (fonts) {
-            changeFont(fonts);
-        }
+    // handle apply button click event
+    addEvent(applyBtn, 'click', function () {
+        var fonts = fontFamilyInput.value;
+        fonts && changeFont(fonts);
     });
+});
+
+addEvent(fontFamilyInput, 'input', function () {
+    applyBtn.textContent = 'apply';
 });
 
 function changeFont(fonts) {
@@ -13,12 +19,10 @@ function changeFont(fonts) {
             font-family: ${fonts} !important;
         }`,
     });
+
+    applyBtn.textContent = 'Done!';
 }
 
-function addEvent(element, event, handler) {
-    if (typeof element === 'string' && /^\.|^#/.test(element)) {
-        element = document.querySelementctor(element);
-    }
-
-    element.addEventListener(event, handler.bind(this), false);
+function addEvent(ele, event, handler) {
+    ele.addEventListener(event, handler.bind(this), false);
 }
