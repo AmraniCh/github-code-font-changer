@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Popup</title>
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+    </head>
+    <body>
+        <form>
+            <h1 class="title">Github Code Font Changer</h1>
+
+            <div class="input-field">
+                <label for="font_family" class="label">Select one of the fonts : </label>
+                <select id="font">
+                    <option>select</option>
+                </select>
+            </div>
+
+            <h2 class="or">OR</h2>
+
+            <div class="input-field">
+                <label for="font_family" class="label">paste a custom css font-family : </label>
+                <input
+                    type="text"
+                    id="font_family"
+                    class="control"
+                    placeholder="'Consolas', 'Courier New', monospace"
+                />
+                <span id="font_family_error" class="error"></span>
+            </div>
+
+            <button type="button" id="change_btn" class="apply-btn">Apply</button>
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <script src="./popup.js"></script>
+    </body>
+</html>
