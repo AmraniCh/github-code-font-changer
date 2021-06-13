@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Popup</title>
-  </head>
-  <body>
-    <button type="button" id="changeBtn">Change font</button>
+    <head>
+        <title>Popup</title>
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+    </head>
+    <body>
+        <form>
+            <h1 class="title">Github Code Font Changer</h1>
 
-    <script src="./index.js"></script>
-  </body>
+            <div class="input-field">
+                <label class="label" for="font_family">font-family : </label>
+                <input type="text" class="control" id="font_family" placeholder="'Consolas', 'Courier New', monospace" />
+            </div>
+
+            <div>
+                <button type="button" id="changeBtn">Apply</button>
+            </div>
+        </form>
+
+        <script src="./index.js"></script>
+    </body>
 </html>

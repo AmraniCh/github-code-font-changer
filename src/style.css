@@ -1,0 +1,54 @@
+body {
+    /*background-color: #eee;*/
+}
+
+form {
+    width: 350px;
+    background-color: #fff;
+    padding: 0 10px 10px 0;
+}
+
+.title {
+    text-align: center;
+    color: #ff7675;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field .label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.input-field .control {
+    padding: 7px;
+    width: 95%;
+}
+
+.input-field input.control {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #eee;
+}
+
+.input-field input.control:focus {
+    border-color: #74b9ff;
+}
+
+#changeBtn {
+    display: block;
+    margin: 0 auto;
+    background-color: rgb(9 132 227);
+    padding: 8px 20px;
+    color: rgb(255 255 255);
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin-top: 35px;
+}
