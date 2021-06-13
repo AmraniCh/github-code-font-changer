@@ -27,7 +27,12 @@ form {
 .input-field .label {
     display: block;
     margin-bottom: 8px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.input-field .label::first-letter {
+    text-transform: uppercase;
 }
 
 .input-field .control {
@@ -39,13 +44,18 @@ form {
     outline: 0;
     border-width: 0 0 2px;
     border-color: #eee;
+    text-align: center;
+}
+
+.input-field input.control::placeholder {
+    text-align: center;
 }
 
 .input-field input.control:focus {
     border-color: #74b9ff;
 }
 
-#changeBtn {
+.apply-btn {
     width: 100%;
     background-color: rgb(9 132 227);
     padding: 12px 20px;
@@ -55,9 +65,22 @@ form {
     cursor: pointer;
     margin-top: 35px;
     text-transform: uppercase;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-#changeBtn:hover {
-    opacity: .8;
+.apply-btn:hover {
+    opacity: 0.8;
+}
+
+.error {
+    display: block;
+    color: #dd3e3e;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.or {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2.2rem;
 }

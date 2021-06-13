@@ -26,10 +26,3 @@ addEvent(document, 'DOMContentLoaded', function () {
 addEvent(fontFamilyInput, 'input', function () {
     applyBtn.textContent = 'apply';
 });
-
-/*
-WebFont.load({
-    google: {
-        families: ['Droid Sans', 'Droid Serif'],
-    },
-});*/
