@@ -8,8 +8,9 @@ const background = chrome.extension.getBackgroundPage(),
      * Popup DOM elements
      */
     applyBtn = document.querySelector('#change_btn'),
-    fontFamilyInput = document.querySelector('#font_family'),
-    selectFontDropdown = document.querySelector('#fonts_select'),
+    selectFontsDropdown = document.querySelector('#fonts_family'),
+    selectFontWeightsDropdown = document.querySelector('#fonts_family_weights'),
+    fontFamilyInput = document.querySelector('#fonts_family_css'),
     /**
      * Select Fonts
      */
@@ -25,13 +26,35 @@ addEvent(document, 'DOMContentLoaded', function () {
             continue;
         }
 
-        var option = document.createElement('option');
-
-        option.value = fontName;
-        option.textContent = fontName;
-
-        selectFontDropdown.appendChild(option);
+        createOption(fontName, fontName, selectFontsDropdown);
     }
+
+    // fill font weight dropdown options when selecting one of fonts in the dropdown fonts select
+    addEvent(selectFontsDropdown, 'change', function () {
+        const font = selectFontsDropdown.value,
+            link = fonts[font],
+            fontWeights = link.match(/\d{3}/g),
+            fontWeightsNames = {
+                100: 'thin',
+                200: 'extra light',
+                300: 'light',
+                400: 'regular',
+                500: 'medium',
+                600: 'semi-bold',
+                700: 'bold',
+                800: 'extra bold',
+                900: 'black',
+            };
+
+        var i = 0;
+        while (i < fontWeights.length) {
+            var weight = fontWeights[i];
+            createOption(`${weight} - ${fontWeightsNames[weight]}`, weight, selectFontWeightsDropdown);
+            i++;
+        }
+    });
+
+    // /\d{3}/g
 
     // fill the font family input with fonts from storage
     chrome.storage.sync.get('gt_code_fonts', function (data) {
@@ -54,3 +77,15 @@ addEvent(document, 'DOMContentLoaded', function () {
 addEvent(fontFamilyInput, 'input', function () {
     applyBtn.textContent = 'apply';
 });
+
+/**
+ * Create option element for select dropdown
+ */
+function createOption(textContent, value, append) {
+    var option = document.createElement('option');
+
+    option.textContent = textContent;
+    option.value = value;
+
+    append.appendChild(option);
+}
