@@ -10,7 +10,14 @@ const background = chrome.extension.getBackgroundPage(),
     applyBtn = document.querySelector('#change_btn'),
     fontFamilyInput = document.querySelector('#font_family');
 
+// popup document content loaded
 addEvent(document, 'DOMContentLoaded', function () {
+    // fill the font family input with fonts from storage
+    chrome.storage.sync.get('gt_code_fonts', function (data) {
+        const fonts = data.gt_code_fonts;
+        fonts && (fontFamilyInput.value = fonts);
+    });
+
     // handle apply button click event
     addEvent(applyBtn, 'click', function () {
         var fonts = fontFamilyInput.value;
