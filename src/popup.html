@@ -9,8 +9,15 @@
             <h1 class="title">Github Code Font Changer</h1>
 
             <div class="input-field">
-                <label for="font_family" class="label">Select one of the fonts : </label>
-                <select id="font">
+                <label for="fonts_family" class="label">Select one of the fonts : </label>
+                <select id="fonts_family">
+                    <option>select</option>
+                </select>
+            </div>
+
+            <div class="input-field">
+                <label for="fonts_family_weights" class="label">Select font weight : </label>
+                <select id="fonts_family_weights">
                     <option>select</option>
                 </select>
             </div>
@@ -18,10 +25,10 @@
             <h2 class="or">OR</h2>
 
             <div class="input-field">
-                <label for="font_family" class="label">paste custom css font-family : </label>
+                <label for="fonts_family_css" class="label">paste custom css font-family : </label>
                 <input
                     type="text"
-                    id="font_family"
+                    id="fonts_family_css"
                     class="control"
                     placeholder="'Consolas', 'Courier New', monospace"
                 />
