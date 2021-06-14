@@ -16,23 +16,24 @@
             </div>
 
             <div class="input-field">
-                <label for="fonts_family_weights" class="label">Select font weight : </label>
-                <select id="fonts_family_weights">
+                <label for="fonts_family_weight" class="label">Select font weight : </label>
+                <select id="fonts_family_weight">
                     <option>select</option>
                 </select>
             </div>
 
-            <h2 class="or">OR</h2>
+            <!--<h2 class="or">OR</h2>-->
 
             <div class="input-field">
-                <label for="fonts_family_css" class="label">paste custom css font-family : </label>
+                <label for="custom_css" class="label">custom css : </label>
+                <!--
                 <input
                     type="text"
                     id="fonts_family_css"
                     class="control"
                     placeholder="'Consolas', 'Courier New', monospace"
-                />
-                <span id="font_family_error" class="error"></span>
+                />-->
+                <textarea id="custom_css" class="control custom-css-teaxarea"></textarea>
             </div>
 
             <button type="button" id="change_btn" class="apply-btn">Apply</button>

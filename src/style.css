@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;300;&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 form {
@@ -28,7 +31,7 @@ form {
     display: block;
     margin-bottom: 8px;
     font-size: 0.9rem;
-    text-align: center;
+    text-align: left;
 }
 
 .input-field .label::first-letter {
@@ -57,10 +60,9 @@ form {
 
 .apply-btn {
     width: 100%;
-    background-color: rgb(9 132 227);
+    background-color: #0984e3;
     padding: 12px 20px;
-    color: rgb(255 255 255);
-    border-radius: 2px;
+    color: #fff;
     border: none;
     cursor: pointer;
     margin-top: 35px;
@@ -83,4 +85,12 @@ form {
     text-align: center;
     margin: 30px 0;
     font-size: 2.2rem;
+}
+
+.custom-css-teaxarea {
+    height: 130px;
+    resize: vertical;
+    border: 1px solid #eee;
+    color: #000;
+    font-weight: 300;
 }
