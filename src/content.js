@@ -1,11 +1,8 @@
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log(message);
+chrome.runtime.onMessage.addListener((message) => {
     if (message.type === 'loadFont') {
-        WebFont.load({
-            google: {
-                families: ['Droid Sans', 'Droid Serif'],
-            },
-        });
+        const style = document.createElement('style');
+        style.appendChild(document.createTextNode(`@import url(${message.font.link})`));
+        document.head.appendChild(style);
     }
     return true;
 });

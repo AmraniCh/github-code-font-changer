@@ -9,34 +9,20 @@
             <h1 class="title">Github Code Font Changer</h1>
 
             <div class="input-field">
-                <label for="fonts_family" class="label">Select one of the fonts : </label>
-                <select id="fonts_family">
-                    <option>select</option>
+                <label for="font_family" class="label">Select one of the fonts : </label>
+                <select id="font_family" class="control">
+                    <option value="">select</option>
                 </select>
             </div>
 
             <div class="input-field">
-                <label for="fonts_family_weight" class="label">Select font weight : </label>
-                <select id="fonts_family_weight">
-                    <option>select</option>
+                <label for="fonts_weight" class="label">Select font weight : </label>
+                <select id="fonts_weight" class="control">
+                    <option value="">select</option>
                 </select>
             </div>
 
-            <!--<h2 class="or">OR</h2>-->
-
-            <div class="input-field">
-                <label for="custom_css" class="label">custom css : </label>
-                <!--
-                <input
-                    type="text"
-                    id="fonts_family_css"
-                    class="control"
-                    placeholder="'Consolas', 'Courier New', monospace"
-                />-->
-                <textarea id="custom_css" class="control custom-css-teaxarea"></textarea>
-            </div>
-
-            <button type="button" id="change_btn" class="apply-btn">Apply</button>
+            <!--<button type="button" id="change_btn" class="apply-btn">Apply</button>-->
         </form>
 
         <script src="./popup.js"></script>

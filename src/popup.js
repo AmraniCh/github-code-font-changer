@@ -10,17 +10,16 @@ addEvent(document, 'DOMContentLoaded', function () {
     const /**
          * Popup DOM elements
          */
-        applyBtn = document.querySelector('#change_btn'),
-        fontFamiliesDropdown = document.querySelector('#fonts_family'),
-        fontWeightsDropdown = document.querySelector('#fonts_family_weight'),
-        customCssTextArea = document.querySelector('#custom_css'),
-        /**
-         * Supported fonts
-         */
-        fonts = {
-            'Fira Code':
-                "url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap')",
-        };
+        fontFamiliesDropdown = document.querySelector('#font_family'),
+        fontWeightsDropdown = document.querySelector('#fonts_weight');
+    /**
+     * Supported fonts
+     */
+    fonts = {
+        'Fira Code': 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap',
+        'Source Code Pro':
+            'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Source+Code+Pro:wght@200;300;400;500;600;700;900&display=swap',
+    };
 
     // populate options of select fonts dropdown
     for (var fontName in fonts) {
@@ -31,7 +30,20 @@ addEvent(document, 'DOMContentLoaded', function () {
         createOption(fontName, fontName, fontFamiliesDropdown);
     }
 
-    // fill font weight dropdown options when selecting one of fonts in the dropdown fonts select
+    // get font settings from storage and initialize the select dropdowns
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function (data) {
+        console.log(data);
+        if (Object.keys(data).length > 0) {
+            fontFamiliesDropdown.querySelector(`option[value="${data.gt_font_family}"]`).setAttribute('selected', '');
+
+            // fir the change event of the font family select dropdown
+            fontFamiliesDropdown.dispatchEvent(new Event('change'));
+
+            fontWeightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
+        }
+    });
+
+    // fill font weight dropdown options when selecting one of fonts in the dropdown font family select
     addEvent(fontFamiliesDropdown, 'change', function () {
         const font = fontFamiliesDropdown.value,
             link = fonts[font],
@@ -48,6 +60,8 @@ addEvent(document, 'DOMContentLoaded', function () {
                 900: 'black',
             };
 
+        fontWeightsDropdown.innerHTML = '';
+
         var i = 0;
         while (i < fontWeights.length) {
             var weight = fontWeights[i];
@@ -56,54 +70,24 @@ addEvent(document, 'DOMContentLoaded', function () {
         }
     });
 
-    // handle apply button click event
-    addEvent(applyBtn, 'click', function () {
-        var fontFamily = fontFamiliesDropdown.value,
-            fontWeight = fontWeightsDropdown.value;
+    addEvent(fontFamiliesDropdown, 'change', function () {
+        var fontFamily = fontFamiliesDropdown.value;
+        applyStyles({ 'font-family': fontFamily });
+        chrome.storage.sync.set({ gt_font_family: fontFamily });
 
-        if (
-            applyStyles({
-                'font-family': fontFamily,
-                'font-weight': fontWeight,
-            })
-        ) {
-            applyBtn.textContent = 'Done!';
-
-            chrome.storage.sync.set({
-                gt_font_family: fontFamily,
-                gt_font_weight: fontWeight,
-            });
-
-            chrome.extension.sendMessage({
-                type: 'loadFont',
-                font: {
-                    font: fontFamily,
-                    link: fonts[fontFamily],
-                },
-            });
-        }
-
-        /*
-        var fonts = custom_css.value;
-        if (fonts && applyStyles(fonts)) {
-            applyBtn.textContent = 'Done!';
-            // store the fonts in browser storage
-            chrome.storage.sync.set({ gt_code_fonts: fonts });
-        }*/
+        chrome.extension.sendMessage({
+            type: 'loadFont',
+            font: {
+                font: fontFamily,
+                link: fonts[fontFamily],
+            },
+        });
     });
 
-    //
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function (data) {
-        if (Object.keys(data).length > 0) {
-            fontFamiliesDropdown.querySelector(`option[value="${data.gt_font_family}"]`).setAttribute('selected', '');
-            fontFamiliesDropdown.dispatchEvent(new Event('change'));
-            fontWeightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
-        }
-    });
-
-    // returns to original apply button text if typing in the font family textarea
-    addEvent(custom_css, 'input', function () {
-        applyBtn.textContent = 'apply';
+    addEvent(fontWeightsDropdown, 'change', function () {
+        var fontWeight = fontWeightsDropdown.value;
+        applyStyles({ 'font-weight': fontWeight });
+        chrome.storage.sync.set({ gt_font_weight: fontWeight });
     });
 
     /**

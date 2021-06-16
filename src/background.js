@@ -11,10 +11,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
             }
         });
 
-        chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+        chrome.runtime.onMessage.addListener(function (request) {
             if (request.type === 'loadFont') {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-                    //chrome.tabs.sendMessage(tabs[0].id, {action: "open_dialog_box"}, function(response) {});
                     chrome.tabs.sendMessage(tabs[0].id, request);
                 });
             }
@@ -32,8 +31,6 @@ function applyStyles(styles) {
     chrome.tabs.insertCSS({
         code: `.blob-code-inner {${css}}`,
     });
-
-    return true;
 }
 
 /**

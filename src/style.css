@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;300;&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
 }
 
 form {
-    width: 350px;
+    width: 300px;
     background-color: #fff;
+    border-bottom: 5px solid #74b9ff;
+    padding-bottom: 15px;
 }
 
 .title {
@@ -18,7 +17,7 @@ form {
     background-color: #222;
     font-size: 2rem;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding: 5px 10px;
 }
 
@@ -43,26 +42,21 @@ form {
     width: 100%;
 }
 
-.input-field input.control {
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: #eee;
+.input-field select.control {
+    border: 1px solid #ddd;
     text-align: center;
 }
 
-.input-field input.control::placeholder {
-    text-align: center;
-}
-
-.input-field input.control:focus {
+.input-field select.control:focus {
     border-color: #74b9ff;
 }
 
 .apply-btn {
     width: 100%;
-    background-color: #0984e3;
+    background-color: rgb(9 132 227);
     padding: 12px 20px;
-    color: #fff;
+    color: rgb(255 255 255);
+    border-radius: 2px;
     border: none;
     cursor: pointer;
     margin-top: 35px;
@@ -72,25 +66,4 @@ form {
 
 .apply-btn:hover {
     opacity: 0.8;
-}
-
-.error {
-    display: block;
-    color: #dd3e3e;
-    font-size: 0.9rem;
-    margin-top: 8px;
-}
-
-.or {
-    text-align: center;
-    margin: 30px 0;
-    font-size: 2.2rem;
-}
-
-.custom-css-teaxarea {
-    height: 130px;
-    resize: vertical;
-    border: 1px solid #eee;
-    color: #000;
-    font-weight: 300;
 }
