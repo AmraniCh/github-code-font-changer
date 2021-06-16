@@ -2,6 +2,13 @@
     "name": "Github Code Font Changer",
     "version": "1.0.0",
     "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["https://*.github.com/*"],
+            "run_at": "document_idle",
+            "js": ["src/content.js"]
+        }
+    ],
     "background": {
         "scripts": ["src/background.js"]
     },
