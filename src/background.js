@@ -3,6 +3,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
     // if the tab is completely loaded
     if (info.status === 'complete') {
         chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function (data) {
+            console.log(data);
             if (Object.keys(data).length > 0) {
                 applyStyles({
                     'font-family': data.gt_font_family,
@@ -28,6 +29,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
  */
 function applyStyles(styles) {
     const css = stylesToCss(styles);
+    console.log(css);
     chrome.tabs.insertCSS({
         code: `.blob-code-inner {${css}}`,
     });
