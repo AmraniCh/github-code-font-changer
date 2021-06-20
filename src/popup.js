@@ -4,18 +4,18 @@
 const background = chrome.extension.getBackgroundPage(),
     addEvent = background.addEvent,
     applyStyles = background.applyStyles,
+    selectors = background.selectors,
+    applyFontFamily = background.applyFontFamily,
+    applyFontWeight = background.applyFontWeight,
+    showIndentGuides = background.showIndentGuides,
+    hideIndentGuides = background.hideIndentGuides,
+    fonts = background.fonts,
     /**
      * Popup DOM elements
      */
     fontsDropdown = document.querySelector('#font_family'),
     weightsDropdown = document.querySelector('#fonts_weight'),
-    /**
-     * Supported fonts
-     */
-    fonts = {
-        'Fira Code': 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap',
-        'Source Code Pro': 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;900&display=swap',
-    };
+    IndentGuidesCheckbox = document.querySelector('#indentGuides');
 
 // popup document content loaded
 addEvent(document, 'DOMContentLoaded', function () {
@@ -31,12 +31,24 @@ function initEvents() {
     addEvent(fontsDropdown, 'change', function () {
         var oldSelectedWeight = weightsDropdown.value;
         fillWeightsDropdown(fontsDropdown.value);
-        applyFontFamily(fontsDropdown.value);
+
+        var fontSelected = fontsDropdown.value;
+        applyFontFamily(fontSelected);
+        chrome.storage.sync.set({ gt_font_family: fontSelected, gt_font_link: fonts[fontSelected] });
+
         updateSelectedWeight(oldSelectedWeight);
     });
 
     addEvent(weightsDropdown, 'change', function () {
-        applyFontWeight(weightsDropdown.value);
+        var selectedWeight = weightsDropdown.value;
+        applyFontWeight(selectedWeight);
+        chrome.storage.sync.set({ gt_font_weight: selectedWeight });
+    });
+
+    addEvent(IndentGuidesCheckbox, 'change', function (event) {
+        var checked = event.target.checked;
+        checked ? hideIndentGuides() : showIndentGuides();
+        chrome.storage.sync.set({ gt_indent_guide: !checked });
     });
 }
 
@@ -57,11 +69,12 @@ function fillFontsDrodown() {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage() {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function (data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_indent_guide'], function (data) {
         if (Object.keys(data).length > 0) {
             fontsDropdown.querySelector(`option[value="${data.gt_font_family}"]`).setAttribute('selected', '');
             fillWeightsDropdown(fontsDropdown.value);
             weightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
+            IndentGuidesCheckbox.checked = !data.gt_indent_guide;
         }
     });
 }
@@ -113,36 +126,6 @@ function updateSelectedWeight(oldSelectedWeight) {
     } else {
         option.setAttribute('selected', '');
     }
-}
-
-/**
- * Applies the giving font family to the github code container.
- * @param {String} family
- */
-function applyFontFamily(family) {
-    applyStyles({ 'font-family': family });
-
-    chrome.storage.sync.set({
-        gt_font_family: family,
-        gt_font_link: fonts[family],
-    });
-
-    chrome.extension.sendMessage({
-        type: 'loadFont',
-        font: {
-            font: family,
-            link: fonts[family],
-        },
-    });
-}
-
-/**
- * Applies the provided weight to the github code container.
- * @param {String} weight
- */
-function applyFontWeight(weight) {
-    applyStyles({ 'font-weight': weight });
-    chrome.storage.sync.set({ gt_font_weight: weight });
 }
 
 /**

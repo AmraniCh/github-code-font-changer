@@ -2,11 +2,14 @@
 <html lang="en">
     <head>
         <title>Popup</title>
-        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link rel="stylesheet" type="text/css" href="./popup.css" />
     </head>
     <body>
         <form>
-            <h1 class="title">Github Code Font Changer</h1>
+            <h1 class="title">
+                <img src="icons/128.png" />
+                <span>Github Code Font Changer</span>
+            </h1>
 
             <div class="input-field">
                 <label for="font_family" class="label">Select one of the fonts : </label>
@@ -22,7 +25,10 @@
                 </select>
             </div>
 
-            <!--<button type="button" id="change_btn" class="apply-btn">Apply</button>-->
+            <div class="checkbox-field">
+                <input type="checkbox" id="indentGuides" class="control" />
+                <label for="indentGuides" class="label">Remove indentation guides</label>
+            </div>
         </form>
 
         <script src="./popup.js"></script>

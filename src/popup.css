@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    width: 300px;
+    background-color: #fff;
+    border-bottom: 5px solid #74b9ff;
+    padding-bottom: 15px;
+}
+
+.title {
+    text-align: left;
+    background-color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.title img {
+    width: 80px;
+}
+
+.title span {
+    font-size: 24px;
+    color: #222;
+    margin-left: 10px;
+}
+
+.input-field,
+.checkbox-field {
+    margin-bottom: 15px;
+    padding: 0 8px;
+}
+
+.input-field .label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.checkbox-field .control {
+    margin-right: 5px;
+}
+
+.checkbox-field .label,
+.checkbox-field .control {
+    vertical-align: middle;
+}
+
+.input-field .label::first-letter {
+    text-transform: uppercase;
+}
+
+.input-field .control {
+    padding: 7px;
+    width: 100%;
+}
+
+.input-field select.control {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.input-field select.control:focus {
+    border-color: #74b9ff;
+}
+
+.apply-btn {
+    width: 100%;
+    background-color: rgb(9 132 227);
+    padding: 12px 20px;
+    color: rgb(255 255 255);
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    margin-top: 35px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.apply-btn:hover {
+    opacity: 0.8;
+}

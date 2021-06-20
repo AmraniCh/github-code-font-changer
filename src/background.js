@@ -1,8 +1,20 @@
+var /**
+     * Supported fonts
+     */
+    fonts = {
+        'Fira Code': 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap',
+        'Source Code Pro': 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;900&display=swap',
+    },
+    selectors = {
+        code: '.blob-code-inner',
+        dotsIndent: '[data-rgh-whitespace="space"]',
+    };
+
 // add a listener to tabs.onUpdated event
 chrome.tabs.onUpdated.addListener(function (tabId, info) {
     // if the tab is completely loaded
     if (info.status === 'complete') {
-        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link'], function (data) {
+        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link', 'gt_indent_guides'], function (data) {
             console.log(data);
             if (Object.keys(data).length > 0) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -15,10 +27,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
                     });
                 });
 
-                applyStyles({
-                    'font-family': data.gt_font_family,
-                    'font-weight': data.gt_font_weight,
-                });
+                applyFontFamily(data.gt_font_family);
+                applyFontWeight(data.gt_font_weight);
+                data.gt_indent_guides ? showIndentGuides() : hideIndentGuides();
             }
         });
 
@@ -37,11 +48,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
  * @param {String} styles
  * @returns true
  */
-function applyStyles(styles) {
+function applyStyles(selector, styles) {
     const css = stylesToCss(styles);
+    console.log(selector);
     console.log(css);
+    console.log(`${selector} {${css}}`);
     chrome.tabs.insertCSS({
-        code: `.blob-code-inner {${css}}`,
+        code: `${selector} {${css}}`,
     });
 }
 
@@ -61,6 +74,42 @@ function stylesToCss(styles) {
     }
 
     return parsed;
+}
+
+/**
+ * Applies the giving font family to the html github code container
+ * @param {String} family
+ */
+function applyFontFamily(family) {
+    applyStyles(selectors.code, { 'font-family': family });
+
+    chrome.extension.sendMessage({
+        type: 'loadFont',
+        font: {
+            font: family,
+            link: fonts[family],
+        },
+    });
+}
+
+/**
+ * Applies the provided weight to the html github code container
+ * @param {String} weight
+ */
+function applyFontWeight(weight) {
+    applyStyles(selectors.code, { 'font-weight': weight });
+}
+
+function hideIndentGuides() {
+    applyStyles(selectors.dotsIndent, {
+        visibility: 'hidden',
+    });
+}
+
+function showIndentGuides() {
+    applyStyles(selectors.dotsIndent, {
+        visibility: 'visible',
+    });
 }
 
 /**
