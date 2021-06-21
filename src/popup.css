@@ -22,8 +22,8 @@ form {
     border-bottom: 1px solid #ddd;
 }
 
-.title img {
-    width: 80px;
+.title img.logo {
+    width: 100%;
 }
 
 .title span {
