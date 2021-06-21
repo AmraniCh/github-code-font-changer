@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "Github Code Font Changer",
+    "description": "Simple Chrome extension to change and customize the GitHub code font.",
+    "version": "1.0.0",
+    "icons": { 
+        "16": "images/icon16.png", 
+        "48": "images/icon48.png", 
+        "128": "images/icon128.png" 
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.github.com/*"],
+            "run_at": "document_idle",
+            "js": ["content.js"]
+        }
+    ],
+    "permissions": [
+        "storage", 
+        "https://*.github.com/*"
+    ]
+}
