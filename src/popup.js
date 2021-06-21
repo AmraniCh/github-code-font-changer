@@ -25,7 +25,7 @@ addEvent(document, 'DOMContentLoaded', function () {
 });
 
 /**
- * Binding popup DOM elements to appropiate events
+ * Binding the necessary events to popup DOM elements
  */
 function initEvents() {
     addEvent(fontsDropdown, 'change', function () {
