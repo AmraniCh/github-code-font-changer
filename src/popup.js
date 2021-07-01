@@ -71,9 +71,16 @@ function fillFontsDrodown() {
 function updateUIFromStorage() {
     chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_indent_guide'], function (data) {
         if (Object.keys(data).length > 0) {
+            // make the restored font selected
             fontsDropdown.querySelector(`option[value="${data.gt_font_family}"]`).setAttribute('selected', '');
+
+            // fill the weights dropdown
             fillWeightsDropdown(fontsDropdown.value);
+
+            // make the restored weight selected
             weightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
+
+            // update indentation guides checkbox 
             IndentGuidesCheckbox.checked = !data.gt_indent_guide;
         }
     });
@@ -120,7 +127,7 @@ function updateSelectedWeight(oldSelectedWeight) {
         /**
          * The first option was selected and the old font weight isn't supported by
          * the new selected font family, so we trigger the weights dropdown change
-         * event to apply the selected font weight.
+         * event to apply the first selected font weight.
          */
         weightsDropdown.dispatchEvent(new Event('change'));
     } else {

@@ -7,19 +7,14 @@ var /**
     },
     selectors = {
         code: '.blob-code-inner',
-        dotsIndent: '[data-rgh-whitespace="space"]',
+        intentGuides: '[data-rgh-whitespace="space"]',
     };
 
 // add a listener to tabs.onUpdated event
 chrome.tabs.onUpdated.addListener(function (tabId, info) {
     // if the tab is completely loaded
     if (info.status === 'complete') {
-        chrome.storage.sync.get([
-            'gt_font_family', 
-            'gt_font_weight', 
-            'gt_font_link', 
-            'gt_indent_guides'
-        ], function (data) {
+        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link', 'gt_indent_guides'], function (data) {
             if (Object.keys(data).length > 0) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                     chrome.tabs.sendMessage(tabs[0].id, {
@@ -101,15 +96,11 @@ function applyFontWeight(weight) {
 }
 
 function hideIndentGuides() {
-    applyStyles(selectors.dotsIndent, {
-        visibility: 'hidden',
-    });
+    applyStyles(selectors.intentGuides, { visibility: 'hidden' });
 }
 
 function showIndentGuides() {
-    applyStyles(selectors.dotsIndent, {
-        visibility: 'visible',
-    });
+    applyStyles(selectors.intentGuides, { visibility: 'visible' });
 }
 
 /**
