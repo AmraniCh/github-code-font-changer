@@ -110,10 +110,16 @@ function fillWeightsDropdown(family) {
     weightsDropdown.innerHTML = '';
 
     var i = 0;
-    while (i < weights.length) {
-        var weight = weights[i];
+    try {
+        while (i < weights.length) {
+            var weight = weights[i];
+            createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDropdown);
+            i++;
+        }
+    } catch (error) {
+        // fonts which return null on weights.length
+        var weight = 400;
         createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDropdown);
-        i++;
     }
 }
 
