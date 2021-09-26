@@ -7,7 +7,11 @@ var /**
         'Roboto Mono': 'https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap',
         'Ubuntu Mono': 'https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap',
         'Courier Prime': 'https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap',
-        'JetBrains Mono': 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap'
+        'JetBrains Mono': 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap',
+        'Share Tech Mono': 'https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap',
+        'Fira Mono':'https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap',
+        'PT Mono':'https://fonts.googleapis.com/css2?family=PT+Mono&display=swap',
+        'Oxygen Mono':'https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap',
     },
     selectors = {
         code: '.blob-code-inner',
