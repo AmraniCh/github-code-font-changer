@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Github Code Font Changer",
     "description": "Chrome extension to change and customize the default GitHub code viewer font",
-    "version": "1.2",
+    "version": "1.3",
     "icons": { 
         "16": "images/icon16.png", 
         "48": "images/icon48.png", 
