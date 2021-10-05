@@ -1,7 +1,7 @@
-/**
- * Get variables from background
- */
-const background = chrome.extension.getBackgroundPage(),
+const /**
+     * variables from background
+     */
+    background = chrome.extension.getBackgroundPage(),
     addEvent = background.addEvent,
     applyStyles = background.applyStyles,
     selectors = background.selectors,
@@ -56,7 +56,8 @@ function initEvents() {
  * Populate options of the select font families dropdown
  */
 function fillFontsDrodown() {
-    for (var fontName in fonts) {
+    const sortedFonts = sortObject(fonts);
+    for (var fontName in sortedFonts) {
         if (!Object.prototype.hasOwnProperty.call(fonts, fontName)) {
             continue;
         }
@@ -80,7 +81,7 @@ function updateUIFromStorage() {
             // make the restored weight selected
             weightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
 
-            // update indentation guides checkbox 
+            // update indentation guides checkbox
             IndentGuidesCheckbox.checked = !data.gt_indent_guide;
         }
     });
@@ -91,8 +92,6 @@ function updateUIFromStorage() {
  * @param {String} family - selected font family
  */
 function fillWeightsDropdown(family) {
-    console.log(family);
-    console.log(fonts);
     const link = fonts[family],
         weights = link.match(/\d{3}/g),
         weightsNames = {
@@ -151,4 +150,11 @@ function createOption(textContent, value, append) {
     option.value = value;
 
     append.appendChild(option);
+}
+
+function sortObject(obj) {
+    return Object.keys(obj).sort().reduce((accumulator, current) => {
+        accumulator[current] = obj[current];
+        return accumulator;
+    }, {});
 }

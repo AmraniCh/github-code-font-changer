@@ -9,13 +9,14 @@ var /**
         'Courier Prime': 'https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap',
         'JetBrains Mono': 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap',
         'Share Tech Mono': 'https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap',
-        'Fira Mono':'https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap',
-        'PT Mono':'https://fonts.googleapis.com/css2?family=PT+Mono&display=swap',
-        'Oxygen Mono':'https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap',
+        'Fira Mono': 'https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap',
+        'PT Mono': 'https://fonts.googleapis.com/css2?family=PT+Mono&display=swap',
+        'Oxygen Mono': 'https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap',
         'Space Mono': 'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'Inconsolata':'https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap',
-        'Anonymous Pro':'https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        'IBM Plex Mono':'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap'
+        Inconsolata: 'https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap',
+        'Anonymous Pro': 'https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+        'IBM Plex Mono':
+            'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap',
     },
     selectors = {
         code: '.blob-code-inner',
@@ -44,6 +45,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
             }
         });
 
+        // Intercept the load font message from the popup script
+        // and resend the same request to the content script
         chrome.runtime.onMessage.addListener(function (request) {
             if (request.type === 'loadFont') {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
