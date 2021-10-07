@@ -66,11 +66,11 @@ For this time, you can install this extension only via the developer mode in you
 1. Download the last stable version from [releases tab](https://github.com/AmraniCh/github-code-font-changer/releases).
 2. Unzip the downloaded zip file.
 3. Visit `chrome://extensions`.
-4. Enable the developper mode.
+4. Enable the developer mode.
 5. Click `Load unpacked` button.
 6. Select the `src` folder from the unzipped file.
 7. Have fun :blush:! 
 
 # License
 
-GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source lisence.
+GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source license.
