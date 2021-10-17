@@ -29,7 +29,7 @@
   <sub>Developped and maintained with ❤️ by  <a href="https://github.com/AmraniCh">AmraniCh</a> and <a href="https://github.com/AmraniCh/github-code-font-changer/graphs/contributors">contributors</a>.</sub>
 </p>
 
-# Why ?
+# Intro
 
 Unhappy with the boring GitHub code viewer font? You're looking for a way to change it without affecting other website's fonts? Well, this extension is made for you :raised_hands:.
 
@@ -55,8 +55,6 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 -   Anonymous Mono.
 -   IBM Plex Mono.
 
-
-
 If you have some other font that other developers could like, you can send a pull request to add it to this extension (The font must be free for personal use or licensed under a free open source license).
 
 # How to install it ?
@@ -66,11 +64,11 @@ For this time, you can install this extension only via the developer mode in you
 1. Download the last stable version from [releases tab](https://github.com/AmraniCh/github-code-font-changer/releases).
 2. Unzip the downloaded zip file.
 3. Visit `chrome://extensions`.
-4. Enable the developper mode.
+4. Enable the developer mode.
 5. Click `Load unpacked` button.
 6. Select the `src` folder from the unzipped file.
-7. Have fun :blush:! 
+7. Have fun :blush:!
 
 # License
 
-GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source lisence.
+GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source license.
