@@ -6,9 +6,9 @@
 
 <p align="center">
     </br>
-    <a href="#">
+    <a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi">
         <img alt="version" 
-            src="https://img.shields.io/github/manifest-json/v/AmraniCh/github-code-font-changer?filename=src%2Fmanifest.json&style=for-the-badge">
+            src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=for-the-badge">
     </a>
     <a href="#">
         <img alt="repo code size"
@@ -59,7 +59,15 @@ If you have some other font that other developers could like, you can send a pul
 
 # How to install it ?
 
-For this time, you can install this extension only via the developer mode in your Chrome browser.
+You can download this extension via :
+
+## Via chrome store
+
+<a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi"> <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/iNEddTyWiMfLSwFD6qGq.png"/></a>
+
+## Developer mode (manual installation)
+
+You can also manually install it via the developer mode in your browser.
 
 1. Download the last stable version from [releases tab](https://github.com/AmraniCh/github-code-font-changer/releases).
 2. Unzip the downloaded zip file.
@@ -68,6 +76,10 @@ For this time, you can install this extension only via the developer mode in you
 5. Click `Load unpacked` button.
 6. Select the `src` folder from the unzipped file.
 7. Have fun :blush:!
+
+# Give us a rating
+
+If you find this extension useful for you please give us a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi), this will motivate us to improve and maintain this extension in the future, Thank you :)
 
 # License
 
