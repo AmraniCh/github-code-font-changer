@@ -53,7 +53,9 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 -   Space Mono.
 -   Inconsolata.
 -   Anonymous Mono.
+-   Atma.
 -   IBM Plex Mono.
+
 
 If you have some other font that other developers could like, you can send a pull request to add it to this extension (The font must be free for personal use or licensed under a free open source license).
 
