@@ -81,10 +81,6 @@ You can also manually install it via the developer mode in your browser.
 
 If you find this extension useful for you please give us a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi), this will motivate us to improve and maintain this extension in the future, Thank you :)
 
-# Support me
-
-<a href="https://www.buymeacoffee.com/AmraniCh"><img width="500px" src="https://img.buymeacoffee.com/api/?url=aHR0cHM6Ly9jZG4uYnV5bWVhY29mZmVlLmNvbS91cGxvYWRzL3Byb2ZpbGVfcGljdHVyZXMvMjAyMS8xMC9jYWYzNWY4MjgzNGRjMTBhNWEyMzhmN2MwNDJlODJhMy5qcGdAMzAwd18wZS53ZWJw&creator=AmraniCh&is_creating=a%20PHP/JavaScript%20Engineer,%20Open%20Source%20Enthusiast&design_code=1&design_color=%23BD5FFF&slug=AmraniCh"/></a>
-
 # License
 
 GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source license.
