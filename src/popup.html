@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Popup</title>
-        <link rel="stylesheet" type="text/css" href="./popup.css" />
-    </head>
-    <body>
-        <form>
-            <h1 class="title">
-                <img class="logo" src="images/logo-wide.png" />
-                <!--
-                <img src="icons/128.png" />
-                <span>Github Code Font Changer</span>-->
-            </h1>
 
-            <div class="input-field">
-                <label for="font_family" class="label">Select one of the fonts : </label>
-                <select id="font_family" class="control">
-                    <option value="">select</option>
-                </select>
-            </div>
+<head>
+    <title>Popup</title>
+    <link rel="stylesheet" type="text/css" href="./popup.css" />
+</head>
 
-            <div class="input-field">
-                <label for="fonts_weight" class="label">Select font weight : </label>
-                <select id="fonts_weight" class="control">
-                    <option value="">select</option>
-                </select>
-            </div>
+<body>
+    <form>
+        <h1 class="title">
+            <img class="logo" src="images/logo-wide.png" />
+        </h1>
 
-            <div class="checkbox-field">
-                <input type="checkbox" id="indentGuides" class="control" />
-                <label for="indentGuides" class="label">Hide indentation guides</label>
-            </div>
-        </form>
+        <div class="input-field">
+            <input id="font_family" class="control" list="font_family_list">
+            <datalist id="font_family_list">
+            </datalist>
+        </div>
 
-        <script src="./popup.js"></script>
-    </body>
+        <div class="input-field">
+            <input id="fonts_weight" class="control" list="fonts_weight_list">
+            <datalist id="fonts_weight_list">
+            </datalist>
+        </div>
+
+        <div class="checkbox-field">
+            <input type="checkbox" id="indentGuides" class="control" />
+            <label for="indentGuides" class="label">Hide indentation guides</label>
+        </div>
+    </form>
+
+    <script src="./popup.js"></script>
+</body>
 </html>

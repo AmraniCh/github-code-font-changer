@@ -13,8 +13,10 @@ const /**
     /**
      * Popup DOM elements
      */
-    fontsDropdown = document.querySelector('#font_family'),
-    weightsDropdown = document.querySelector('#fonts_weight'),
+    fontsDatalist = document.querySelector('#font_family_list'),
+    fontsDatalistInput = document.querySelector('#font_family'),
+    weightsDatalist = document.querySelector('#fonts_weight_list'),
+    weightsDatalistInput = document.querySelector('#fonts_weight'),
     IndentGuidesCheckbox = document.querySelector('#indentGuides');
 
 // popup document content loaded
@@ -28,19 +30,26 @@ addEvent(document, 'DOMContentLoaded', function () {
  * Binding the necessary events to popup DOM elements
  */
 function initEvents() {
-    addEvent(fontsDropdown, 'change', function () {
-        var oldSelectedWeight = weightsDropdown.value;
-        fillWeightsDropdown(fontsDropdown.value);
+    addEvent(fontsDatalistInput, 'input', function () {
+        const oldSelectedWeight = weightsDatalistInput.value,
+            fontSelected = fontsDatalistInput.value,
+            isLocalFont = Object.keys(fonts).indexOf(fontSelected) === -1;
 
-        var fontSelected = fontsDropdown.value;
         applyFontFamily(fontSelected);
-        chrome.storage.sync.set({ gt_font_family: fontSelected, gt_font_link: fonts[fontSelected] });
 
-        updateSelectedWeight(oldSelectedWeight);
+        chrome.storage.sync.set({
+            gt_font_family: fontSelected,
+            gt_font_link: fonts[fontSelected]
+        });
+
+        if (!isLocalFont) {
+            fillWeightsDropdown(fontsDatalistInput.value);
+            updateSelectedWeight(oldSelectedWeight);
+        }
     });
 
-    addEvent(weightsDropdown, 'change', function () {
-        var selectedWeight = weightsDropdown.value;
+    addEvent(weightsDatalistInput, 'input', function () {
+        var selectedWeight = weightsDatalistInput.value;
         applyFontWeight(selectedWeight);
         chrome.storage.sync.set({ gt_font_weight: selectedWeight });
     });
@@ -62,7 +71,7 @@ function fillFontsDrodown() {
             continue;
         }
 
-        createOption(fontName, fontName, fontsDropdown);
+        createOption(fontName, fontName, fontsDatalist);
     }
 }
 
@@ -72,17 +81,19 @@ function fillFontsDrodown() {
 function updateUIFromStorage() {
     chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_indent_guide'], function (data) {
         if (Object.keys(data).length > 0) {
-            // make the restored font selected
-            fontsDropdown.querySelector(`option[value="${data.gt_font_family}"]`).setAttribute('selected', '');
+            const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
-            // fill the weights dropdown
-            fillWeightsDropdown(fontsDropdown.value);
-
-            // make the restored weight selected
-            weightsDropdown.querySelector(`option[value="${data.gt_font_weight}"]`).setAttribute('selected', '');
+            // make the restored font family & weight selected
+            fontsDatalistInput.value = data.gt_font_family;
+            weightsDatalistInput.value = data.gt_font_weight;
 
             // update indentation guides checkbox
             IndentGuidesCheckbox.checked = !data.gt_indent_guide;
+
+            if (!isLocalFont) {
+                // fill the weights dropdown
+                fillWeightsDropdown(fontsDatalistInput.value);
+            }
         }
     });
 }
@@ -106,19 +117,19 @@ function fillWeightsDropdown(family) {
             900: 'black',
         };
 
-    weightsDropdown.innerHTML = '';
+    weightsDatalist.innerHTML = '';
 
     var i = 0;
     try {
         while (i < weights.length) {
             var weight = weights[i];
-            createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDropdown);
+            createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDatalist);
             i++;
         }
     } catch (error) {
         // fonts which return null on weights.length
         var weight = 400;
-        createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDropdown);
+        createOption(`${weight} - ${weightsNames[weight]}`, weight, weightsDatalist);
     }
 }
 
@@ -127,14 +138,14 @@ function fillWeightsDropdown(family) {
  * @param {String} oldSelectedWeight
  */
 function updateSelectedWeight(oldSelectedWeight) {
-    var option = weightsDropdown.querySelector(`option[value="${oldSelectedWeight}"]`);
+    var option = weightsDatalist.querySelector(`option[value="${oldSelectedWeight}"]`);
     if (option === null) {
         /**
          * The first option was selected and the old font weight isn't supported by
          * the new selected font family, so we trigger the weights dropdown change
          * event to apply the first selected font weight.
          */
-        weightsDropdown.dispatchEvent(new Event('change'));
+        weightsDatalist.dispatchEvent(new Event('change'));
     } else {
         option.setAttribute('selected', '');
     }
