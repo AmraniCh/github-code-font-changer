@@ -1,5 +1,11 @@
 # Change Log
 
+## v2.0 (2022-04-10)
+
+- Allows using local fonts beside the fonts provided by the extension.
+- Applying the choosing font family and weight is now live as you type in the fields.
+- Added new font `Atma` [#14](https://github.com/AmraniCh/github-code-font-changer/pull/14).
+
 ## v1.3 (2021-10-05)
 
 - `Space Mono`, `Inconsolata`, `Anonymous Pro`, `IBM Plex Mono` fonts added [#5](https://github.com/AmraniCh/github-code-font-changer/pull/5).
