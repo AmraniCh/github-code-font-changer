@@ -32,13 +32,13 @@
 
 Unhappy with the boring GitHub code viewer font? You're looking for a way to change it without affecting other website's fonts? Well, this extension is made for you :raised_hands:.
 
-# Features
+## 🚀 Features
 
 - As of version 2, you can use the fonts installed in your local machine alongside the fonts provided by the extension.
 - Change the font weight for the selected font family.
 - Hide the indentation guides.
 
-# Available Fonts
+## 🔥 Available Fonts
 
 -   Fira Code.
 -   Source Code Pro.
@@ -57,15 +57,15 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 If you have some other font that other developers could like, you can send a pull request to add it to this extension (The font must be free for personal use or licensed under a free open source license).
 
-# Installation
+## 🌠 Installation
 
 You can download this extension via :
 
-## Via Chrome Store
+### Via Chrome Store
 
 <a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi"> <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/iNEddTyWiMfLSwFD6qGq.png"/></a>
 
-## Manual Installation Using Developer Mode
+### Manual Installation Using Developer Mode
 
 You can also manually install it via the developer mode in your browser.
 
@@ -77,14 +77,14 @@ You can also manually install it via the developer mode in your browser.
 6. Select the `src` folder from the unzipped file.
 7. Have fun :blush:!
 
-# Don't Support Me
+## ❤️ Support Me
 
 <a href='https://ko-fi.com/D1D3C2UDE' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-# Rate The Extension If You Found It Useful
+## ⭐ Rate The Extension If You Found It Useful
 
 If you find this extension useful for you please give us a review at [Chrome Web Store](https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi), this will motivate us to improve and maintain this extension in the future, Thank you :)
 
-# License
+## 📜 License
 
 GitHub Code Font Changer is an open-source chrome extension lisenced under the [MIT](https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE) open source license.
