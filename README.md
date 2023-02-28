@@ -40,20 +40,20 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 ## 🔥 Available Fonts
 
--   Fira Code.
--   Source Code Pro.
--   Roboto Mono.
--   Ubuntu Mono.
--   Courier Prime.
--   JetBrains Mono.
--   Share Tech Mono.
--   PT Mono.
--   Oxygen Mono.
--   Space Mono.
--   Inconsolata.
 -   Anonymous Mono.
--   IBM Plex Mono.
 -   Atma.
+-   Courier Prime.
+-   Fira Code.
+-   Inconsolata.
+-   IBM Plex Mono.
+-   JetBrains Mono.
+-   Oxygen Mono.
+-   PT Mono.
+-   Roboto Mono.
+-   Share Tech Mono.
+-   Source Code Pro.
+-   Space Mono.
+-   Ubuntu Mono.
 
 If you have some other font that other developers could like, you can send a pull request to add it to this extension (The font must be free for personal use or licensed under a free open source license).
 
