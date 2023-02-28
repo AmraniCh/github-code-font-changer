@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.2 (2023-02-28)
+
+- Supported changing fonts with the new feature [New Code Search and Code View](https://docs.github.com/en/repositories/working-with-files/managing-files/navigating-files-with-the-new-code-view) - [#16](https://github.com/AmraniCh/github-code-font-changer/pull/16).
+
 ## v2.0 (2022-04-10)
 
 - Allows using local fonts beside the fonts provided by the extension.
