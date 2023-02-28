@@ -17,10 +17,10 @@ var /**
         'Anonymous Pro': 'https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap',
         'IBM Plex Mono':
             'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap',
-        'Atma':'https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap',
+        Atma: 'https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap',
     },
     selectors = {
-        code: '.blob-code-inner',
+        code: '.blob-code-inner, .react-code-text',
         intentGuides: '[data-rgh-whitespace="space"]',
     };
 
