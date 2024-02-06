@@ -1,35 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <title>Popup</title>
+        <link rel="stylesheet" type="text/css" href="./popup.css" />
+    </head>
 
-<head>
-    <title>Popup</title>
-    <link rel="stylesheet" type="text/css" href="./popup.css" />
-</head>
+    <body>
+        <form>
+            <h1 class="title">
+                <img class="logo" src="images/logo-wide.png" />
+            </h1>
 
-<body>
-    <form>
-        <h1 class="title">
-            <img class="logo" src="images/logo-wide.png" />
-        </h1>
+            <div class="input-field">
+                <input id="font_family" class="control" list="font_family_list" />
+                <datalist id="font_family_list"> </datalist>
+            </div>
 
-        <div class="input-field">
-            <input id="font_family" class="control" list="font_family_list">
-            <datalist id="font_family_list">
-            </datalist>
-        </div>
+            <div class="input-field">
+                <input id="fonts_weight" class="control" list="fonts_weight_list" />
+                <datalist id="fonts_weight_list"> </datalist>
+            </div>
 
-        <div class="input-field">
-            <input id="fonts_weight" class="control" list="fonts_weight_list">
-            <datalist id="fonts_weight_list">
-            </datalist>
-        </div>
+            <div class="input-field">
+                <input id="fonts_size" class="control" placeholder="16px, 1em, 1.2rem" />
+            </div>
 
-        <div class="checkbox-field">
-            <input type="checkbox" id="indentGuides" class="control" />
-            <label for="indentGuides" class="label">Hide indentation guides</label>
-        </div>
-    </form>
+            <div class="checkbox-field">
+                <input type="checkbox" id="indentGuides" class="control" />
+                <label for="indentGuides" class="label">Hide indentation guides</label>
+            </div>
+        </form>
 
-    <script src="./popup.js"></script>
-</body>
+        <script src="./popup.js"></script>
+    </body>
 </html>

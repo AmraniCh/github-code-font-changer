@@ -20,7 +20,7 @@ var /**
         Atma: 'https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap',
     },
     selectors = {
-        code: '.blob-code-inner, .react-code-text',
+        code: '.blob-code-inner, .react-code-text, .react-blob-print-hide',
         intentGuides: '[data-rgh-whitespace="space"]',
     };
 
@@ -28,7 +28,7 @@ var /**
 chrome.tabs.onUpdated.addListener(function (tabId, info) {
     // if the tab is completely loaded
     if (info.status === 'complete') {
-        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link', 'gt_indent_guides'], function (data) {
+        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_link', 'gt_indent_guides'], function (data) {
             if (Object.keys(data).length > 0) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                     chrome.tabs.sendMessage(tabs[0].id, {
@@ -42,6 +42,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
 
                 applyFontFamily(data.gt_font_family);
                 applyFontWeight(data.gt_font_weight);
+                applyFontSize(data.gt_font_size);
                 data.gt_indent_guides ? showIndentGuides() : hideIndentGuides();
             }
         });
@@ -109,6 +110,14 @@ function applyFontFamily(family) {
  */
 function applyFontWeight(weight) {
     applyStyles(selectors.code, { 'font-weight': weight });
+}
+
+/**
+ * Applies the provided font-size to the html github code container
+ * @param {String} font-size (in px, em, rem, etc)
+ */
+function applyFontSize(size) {
+    applyStyles(selectors.code, { 'font-size': size });
 }
 
 function hideIndentGuides() {
