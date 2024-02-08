@@ -43,6 +43,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
                 applyFontFamily(data.gt_font_family);
                 applyFontWeight(data.gt_font_weight);
                 applyFontSize(data.gt_font_size);
+
                 data.gt_indent_guides ? showIndentGuides() : hideIndentGuides();
             }
         });

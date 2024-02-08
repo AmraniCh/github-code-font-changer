@@ -1,14 +1,30 @@
+:root {
+    --primary-color: #298f8e
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--primary-color);
+    font-weight: 500;
 }
 
-form {
-    width: 270px;
+input[type="checkbox"] {
+    accent-color: var(--primary-color);
+}
+
+input::placeholder {
+    color: var(--primary-color);
+    opacity: .6;
+}
+
+.form {
+    width: 320px;
     background-color: #fff;
-    border-bottom: 6px solid #8974ff;
-    padding-bottom: 15px;
+    border-right: 6px solid var(--primary-color);
+    border-bottom: 6px solid var(--primary-color);
+    padding: 15px 10px 15px 10px;
 }
 
 .title {
@@ -16,10 +32,10 @@ form {
     background-color: #fff;
     text-transform: uppercase;
     margin-bottom: 15px;
-    padding: 15px 10px;
+    padding: 15px 15px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .title img.logo {
@@ -28,39 +44,37 @@ form {
 
 .title span {
     font-size: 24px;
-    color: #222;
     margin-left: 10px;
+}
+
+.label {
+    font-size: .9rem;
 }
 
 .input-field,
 .checkbox-field {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 0 8px;
-}
-
-.input-field .label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    text-align: left;
-}
-
-.checkbox-field .control {
-    margin-right: 5px;
-}
-
-.checkbox-field .label,
-.checkbox-field .control {
-    vertical-align: middle;
 }
 
 .input-field .label::first-letter {
     text-transform: uppercase;
 }
 
+.input-field .label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
 .input-field .control {
-    padding: 7px;
+    transition: all .1s linear;
+    padding: 8px;
     width: 100%;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
 }
 
 .input-field select.control {
@@ -68,8 +82,19 @@ form {
     text-align: center;
 }
 
-.input-field select.control:focus {
-    border-color: #74b9ff;
+.input-field .control:focus {
+    outline: 3px solid var(--primary-color);
+}
+
+.checkbox-field .control {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+.checkbox-field .label,
+.checkbox-field .control {
+    vertical-align: middle;
 }
 
 .apply-btn {

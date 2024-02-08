@@ -16,9 +16,9 @@ const /**
      */
     fontsDatalist = document.querySelector('#font_family_list'),
     fontsDatalistInput = document.querySelector('#font_family'),
-    weightsDatalist = document.querySelector('#fonts_weight_list'),
-    weightsDatalistInput = document.querySelector('#fonts_weight'),
-    fontSizeInput = document.querySelector('#fonts_size'),
+    weightsDatalist = document.querySelector('#font_weight_list'),
+    weightsDatalistInput = document.querySelector('#font_weight'),
+    fontSizeInput = document.querySelector('#font_size'),
     IndentGuidesCheckbox = document.querySelector('#indentGuides');
 
 // popup document content loaded
@@ -87,7 +87,7 @@ function fillFontsDrodown() {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage() {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_indent_guide'], function (data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_size', 'gt_indent_guide'], function (data) {
         console.log(data);
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;

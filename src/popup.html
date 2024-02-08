@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Popup</title>
@@ -6,25 +6,34 @@
     </head>
 
     <body>
-        <form>
+        <form class="form">
             <h1 class="title">
-                <img class="logo" src="images/logo-wide.png" />
+                <img class="logo" src="images/logo/V2/logo-wide.png" />
             </h1>
 
             <div class="input-field">
-                <input id="font_family" class="control" list="font_family_list" placeholder="Souce Code Pro.."/>
-                <datalist id="font_family_list"> </datalist>
+                <label class="label" for="font_family">
+                    Font: 
+                    <input id="font_family" class="control" list="font_family_list" placeholder="Souce Code Pro.." />
+                    <datalist id="font_family_list"> </datalist>
+                </label>
             </div>
 
             <div class="input-field">
-                <input id="fonts_weight" class="control" list="fonts_weight_list" placeholder="light, medium, bold" />
-                <datalist id="fonts_weight_list"> </datalist>
+                <label class="label" for="font_weight">
+                    Weight: 
+                    <input id="font_weight" class="control" list="font_weight_list" placeholder="light, medium, bold" />
+                    <datalist id="font_weight_list"> </datalist>
+                </label>
             </div>
 
             <div class="input-field">
-                <input id="fonts_size" class="control" placeholder="16px, 1em, 1.2rem" />
+                <label class="label" for="font_weight">
+                    Size:
+                    <input id="font_size" class="control" placeholder="16px, 1em, 1.2rem" />
+                </label>
             </div>
-
+            
             <div class="checkbox-field">
                 <input type="checkbox" id="indentGuides" class="control" />
                 <label for="indentGuides" class="label">Hide indentation guides</label>
