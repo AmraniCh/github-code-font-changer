@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-     <img src="https://i.ibb.co/brYBgZx/logo-wide.png" alt="GitHub Code Font Changer" width="500px" />
+     <img src="https://github.com/AmraniCh/github-code-font-changer/blob/master/src/images/logo/V2/logo-wide.png?raw=true" alt="GitHub Code Font Changer" width="500px" />
 </p>
 
 <p align="center">
@@ -34,6 +34,7 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 ## 🚀 Features
 
+- As of Version 3, changing font size is supported.
 - As of version 2, you can use the fonts installed in your local machine alongside the fonts provided by the extension.
 - Change the font weight for the selected font family.
 - Hide the indentation guides.
@@ -57,7 +58,7 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 If you have some other font that other developers could like, you can send a pull request to add it to this extension (The font must be free for personal use or licensed under a free open source license).
 
-## 🌠 Installation
+## 🌠 Download
 
 You can download this extension via :
 
@@ -77,9 +78,11 @@ You can also manually install it via the developer mode in your browser.
 6. Select the `src` folder from the unzipped file.
 7. Have fun :blush:!
 
-## ❤️ Support Me
+## 🗃️ Assets
 
-<a href='https://ko-fi.com/D1D3C2UDE' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+Logo assets (PSD files) are available in the assets folder, If you see a need for changing something in the logo or you have a creative idea feel free to download and edit the PSD file.
+
+For the store chrome Promo images they are created with Figma, with this If you want to edit them, you have first to open an issue describing your idea and what you will change, if approved I will invite you the [source Figme file](https://www.figma.com/file/7SHQlL5ehiQhxWpz4DkQpO/github-code-font-changer?type=design&node-id=0-1&mode=design&t=qv0LXPwBsEHsJ55M-0).
 
 ## ⭐ Rate The Extension If You Found It Useful
 

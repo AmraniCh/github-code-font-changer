@@ -4,5 +4,5 @@ Here you can find/add some of the desired features to be implemented in the next
 
 ## Requested features
 
-- [ ] Add the option to change the font size of the selected font family [#8](../../issues/8).
+- [X] Add the option to change the font size of the selected font family [#8](../../issues/8).
 - [x] Allows using local fonts [#12](../../issues/12).
