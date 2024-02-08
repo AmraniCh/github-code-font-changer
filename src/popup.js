@@ -88,13 +88,14 @@ function fillFontsDrodown() {
  */
 function updateUIFromStorage() {
     chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_indent_guide'], function (data) {
+        console.log(data);
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
-            // make the restored font family & weight selected
-            fontsDatalistInput.value = data.gt_font_family;
-            weightsDatalistInput.value = data.gt_font_weight;
-            fontSizeInput.value = data.gt_font_size;
+            // update fields
+            fontsDatalistInput.value = data.gt_font_family || '';
+            weightsDatalistInput.value = data.gt_font_weight || '';
+            fontSizeInput.value = data.gt_font_size || '';
 
             // update indentation guides checkbox
             IndentGuidesCheckbox.checked = !data.gt_indent_guide;
