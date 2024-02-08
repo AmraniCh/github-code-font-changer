@@ -7,6 +7,7 @@ const /**
     selectors = background.selectors,
     applyFontFamily = background.applyFontFamily,
     applyFontWeight = background.applyFontWeight,
+    applyFontSize = background.applyFontSize,
     showIndentGuides = background.showIndentGuides,
     hideIndentGuides = background.hideIndentGuides,
     fonts = background.fonts,
@@ -17,6 +18,7 @@ const /**
     fontsDatalistInput = document.querySelector('#font_family'),
     weightsDatalist = document.querySelector('#fonts_weight_list'),
     weightsDatalistInput = document.querySelector('#fonts_weight'),
+    fontSizeInput = document.querySelector('#fonts_size'),
     IndentGuidesCheckbox = document.querySelector('#indentGuides');
 
 // popup document content loaded
@@ -39,7 +41,7 @@ function initEvents() {
 
         chrome.storage.sync.set({
             gt_font_family: fontSelected,
-            gt_font_link: fonts[fontSelected]
+            gt_font_link: fonts[fontSelected],
         });
 
         if (!isLocalFont) {
@@ -52,6 +54,12 @@ function initEvents() {
         var selectedWeight = weightsDatalistInput.value;
         applyFontWeight(selectedWeight);
         chrome.storage.sync.set({ gt_font_weight: selectedWeight });
+    });
+
+    addEvent(fontSizeInput, 'input', function () {
+        var typedSize = fontSizeInput.value;
+        applyFontSize(typedSize);
+        chrome.storage.sync.set({ gt_font_size: typedSize });
     });
 
     addEvent(IndentGuidesCheckbox, 'change', function (event) {
@@ -79,13 +87,14 @@ function fillFontsDrodown() {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage() {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_indent_guide'], function (data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_indent_guide'], function (data) {
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
             // make the restored font family & weight selected
             fontsDatalistInput.value = data.gt_font_family;
             weightsDatalistInput.value = data.gt_font_weight;
+            fontSizeInput.value = data.gt_font_size;
 
             // update indentation guides checkbox
             IndentGuidesCheckbox.checked = !data.gt_indent_guide;
@@ -164,8 +173,10 @@ function createOption(textContent, value, append) {
 }
 
 function sortObject(obj) {
-    return Object.keys(obj).sort().reduce((accumulator, current) => {
-        accumulator[current] = obj[current];
-        return accumulator;
-    }, {});
+    return Object.keys(obj)
+        .sort()
+        .reduce((accumulator, current) => {
+            accumulator[current] = obj[current];
+            return accumulator;
+        }, {});
 }
