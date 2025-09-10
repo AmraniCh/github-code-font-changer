@@ -1,5 +1,9 @@
 # Change Log
 
+## v4.0 (2025-10-09)
+
+- Upgraded code base to manifest V3 [#22](https://github.com/AmraniCh/github-code-font-changer/issues/22).
+
 ## v3.0 (2024-02-09)
 
 - Changed extension logo base color.
