@@ -31,9 +31,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
         chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_link', 'gt_indent_guides'], function (data) {
             if (Object.keys(data).length > 0) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                    // if (!tabs[0] || typeof tabs[0].id === 'undefined') return;
                     chrome.tabs.sendMessage(tabs[0].id, {
-                        type: 'loadFont',
-                        font: {
+                        action: 'loadFont',
+                        value: {
                             font: data.gt_font_family,
                             link: data.gt_font_link,
                         },
@@ -47,16 +48,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
                 data.gt_indent_guides ? showIndentGuides() : hideIndentGuides();
             }
         });
-
-        // Intercept the load font message from the popup script
-        // and resend the same request to the content script
-        chrome.runtime.onMessage.addListener(function (request) {
-            if (request.type === 'loadFont') {
-                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-                    chrome.tabs.sendMessage(tabs[0].id, request);
-                });
-            }
-        });
     }
 });
 
@@ -67,8 +58,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
  */
 function applyStyles(selector, styles) {
     const css = stylesToCss(styles);
-    chrome.tabs.insertCSS({
-        code: `${selector} {${css}}`,
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        if (!tabs[0]) return;
+        chrome.scripting.insertCSS({
+            target: { tabId: tabs[0].id },
+            css: `${selector} {${css}}`,
+        });
     });
 }
 
@@ -96,12 +91,15 @@ function stylesToCss(styles) {
  */
 function applyFontFamily(family) {
     applyStyles(selectors.code, { 'font-family': family });
-    chrome.extension.sendMessage({
-        type: 'loadFont',
-        font: {
-            font: family,
-            link: fonts[family],
-        },
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        if (!tabs[0] || !tabs[0].url || !tabs[0].url.match(/^https:\/\/.*\.github\.com\//)) return;
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: 'loadFont',
+            value: {
+                font: family,
+                link: fonts[family],
+            },
+        });
     });
 }
 
@@ -138,3 +136,28 @@ function showIndentGuides() {
 function addEvent(ele, event, handler) {
     ele.addEventListener(event, handler.bind(this), false);
 }
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    switch (request.action) {
+        case 'applyFontFamily':
+            applyFontFamily(request.value);
+            break;
+        case 'applyFontWeight':
+            applyFontWeight(request.value);
+            break;
+        case 'applyFontSize':
+            applyFontSize(request.value);
+            break;
+        case 'toggleIndentGuides':
+            request.value ? hideIndentGuides() : showIndentGuides();
+            break;
+        case 'getFonts':
+            sendResponse({ fonts });
+        case 'loadFont':
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                if (!tabs[0] || typeof tabs[0].id === 'undefined') return;
+                chrome.tabs.sendMessage(tabs[0].id, request);
+            });
+            break;
+    }
+});
