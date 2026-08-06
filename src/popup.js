@@ -16,7 +16,6 @@ const
 // selectors = background.selectors,
 // applyFontFamily = background.applyFontFamily,
 // applyFontWeight = background.applyFontWeight,
-// applyFontSize = background.applyFontSize,
 // fonts = background.fonts,
 /**
  * Popup DOM elements
@@ -24,8 +23,7 @@ const
     fontsDatalist = document.querySelector('#font_family_list'),
     fontsDatalistInput = document.querySelector('#font_family'),
     weightsDatalist = document.querySelector('#font_weight_list'),
-    weightsDatalistInput = document.querySelector('#font_weight'),
-    fontSizeInput = document.querySelector('#font_size');
+    weightsDatalistInput = document.querySelector('#font_weight');
 
 
 
@@ -68,12 +66,6 @@ function initEvents(fonts) {
         sendMessage("applyFontWeight", selectedWeight);
         chrome.storage.sync.set({ gt_font_weight: selectedWeight });
     });
-
-    addEvent(fontSizeInput, 'input', function() {
-        var typedSize = fontSizeInput.value;
-        sendMessage("applyFontSize", selectedWeight);
-        chrome.storage.sync.set({ gt_font_size: typedSize });
-    });
 }
 
 /**
@@ -94,14 +86,13 @@ function fillFontsDrodown(fonts) {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage(fonts) {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_size'], function(data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function(data) {
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
             // update fields
             fontsDatalistInput.value = data.gt_font_family || '';
             weightsDatalistInput.value = data.gt_font_weight || '';
-            fontSizeInput.value = data.gt_font_size || '';
 
             if (!isLocalFont) {
                 // fill the weights dropdown
