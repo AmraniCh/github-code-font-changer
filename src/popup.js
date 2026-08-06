@@ -23,7 +23,8 @@ const
     fontsDatalist = document.querySelector('#font_family_list'),
     fontsDatalistInput = document.querySelector('#font_family'),
     weightsDatalist = document.querySelector('#font_weight_list'),
-    weightsDatalistInput = document.querySelector('#font_weight');
+    weightsDatalistInput = document.querySelector('#font_weight'),
+    lineHeightInput = document.querySelector('#line_height');
 
 
 
@@ -66,6 +67,12 @@ function initEvents(fonts) {
         sendMessage("applyFontWeight", selectedWeight);
         chrome.storage.sync.set({ gt_font_weight: selectedWeight });
     });
+
+    addEvent(lineHeightInput, 'input', function() {
+        var lineHeight = lineHeightInput.value;
+        sendMessage("applyLineHeight", lineHeight);
+        chrome.storage.sync.set({ gt_line_height: lineHeight });
+    });
 }
 
 /**
@@ -86,13 +93,14 @@ function fillFontsDrodown(fonts) {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage(fonts) {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight'], function(data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_line_height'], function(data) {
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
             // update fields
             fontsDatalistInput.value = data.gt_font_family || '';
             weightsDatalistInput.value = data.gt_font_weight || '';
+            lineHeightInput.value = data.gt_line_height || '';
 
             if (!isLocalFont) {
                 // fill the weights dropdown

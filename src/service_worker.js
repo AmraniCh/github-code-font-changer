@@ -27,7 +27,7 @@ var /**
 chrome.tabs.onUpdated.addListener(function (tabId, info) {
     // if the tab is completely loaded
     if (info.status === 'complete') {
-        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link'], function (data) {
+        chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_link', 'gt_line_height'], function (data) {
             if (Object.keys(data).length > 0) {
                 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                     // if (!tabs[0] || typeof tabs[0].id === 'undefined') return;
@@ -42,6 +42,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, info) {
 
                 applyFontFamily(data.gt_font_family);
                 applyFontWeight(data.gt_font_weight);
+                applyLineHeight(data.gt_line_height);
             }
         });
     }
@@ -108,6 +109,14 @@ function applyFontWeight(weight) {
 }
 
 /**
+ * Applies the provided line-height to the html github code container
+ * @param {String} lineHeight (in px, unitless, em, rem, etc)
+ */
+function applyLineHeight(lineHeight) {
+    applyStyles(selectors.code, { 'line-height': lineHeight });
+}
+
+/**
  * Just a shortcut for the native target.addEventListener
  * @param {DOMElement} ele
  * @param {String} event
@@ -124,6 +133,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             break;
         case 'applyFontWeight':
             applyFontWeight(request.value);
+            break;
+        case 'applyLineHeight':
+            applyLineHeight(request.value);
             break;
         case 'getFonts':
             sendResponse({ fonts });
