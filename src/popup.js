@@ -17,8 +17,6 @@ const
 // applyFontFamily = background.applyFontFamily,
 // applyFontWeight = background.applyFontWeight,
 // applyFontSize = background.applyFontSize,
-// showIndentGuides = background.showIndentGuides,
-// hideIndentGuides = background.hideIndentGuides,
 // fonts = background.fonts,
 /**
  * Popup DOM elements
@@ -27,8 +25,7 @@ const
     fontsDatalistInput = document.querySelector('#font_family'),
     weightsDatalist = document.querySelector('#font_weight_list'),
     weightsDatalistInput = document.querySelector('#font_weight'),
-    fontSizeInput = document.querySelector('#font_size'),
-    IndentGuidesCheckbox = document.querySelector('#indentGuides');
+    fontSizeInput = document.querySelector('#font_size');
 
 
 
@@ -77,12 +74,6 @@ function initEvents(fonts) {
         sendMessage("applyFontSize", selectedWeight);
         chrome.storage.sync.set({ gt_font_size: typedSize });
     });
-
-    addEvent(IndentGuidesCheckbox, 'change', function(event) {
-        var checked = event.target.checked;
-        checked ? hideIndentGuides() : showIndentGuides();
-        chrome.storage.sync.set({ gt_indent_guide: !checked });
-    });
 }
 
 /**
@@ -103,7 +94,7 @@ function fillFontsDrodown(fonts) {
  * Get font settings from storage and initialize the select dropdowns
  */
 function updateUIFromStorage(fonts) {
-    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_size', 'gt_indent_guide'], function(data) {
+    chrome.storage.sync.get(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_size'], function(data) {
         if (Object.keys(data).length > 0) {
             const isLocalFont = Object.keys(fonts).indexOf(data.gt_font_family) === -1;
 
@@ -111,9 +102,6 @@ function updateUIFromStorage(fonts) {
             fontsDatalistInput.value = data.gt_font_family || '';
             weightsDatalistInput.value = data.gt_font_weight || '';
             fontSizeInput.value = data.gt_font_size || '';
-
-            // update indentation guides checkbox
-            IndentGuidesCheckbox.checked = !data.gt_indent_guide;
 
             if (!isLocalFont) {
                 // fill the weights dropdown

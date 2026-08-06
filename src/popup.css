@@ -10,10 +10,6 @@
     font-weight: 500;
 }
 
-input[type="checkbox"] {
-    accent-color: var(--primary-color);
-}
-
 input::placeholder {
     color: var(--primary-color);
     opacity: .6;
@@ -51,8 +47,7 @@ input::placeholder {
     font-size: .9rem;
 }
 
-.input-field,
-.checkbox-field {
+.input-field {
     margin-bottom: 10px;
     padding: 0 8px;
 }
@@ -84,17 +79,6 @@ input::placeholder {
 
 .input-field .control:focus {
     outline: 3px solid var(--primary-color);
-}
-
-.checkbox-field .control {
-    margin-right: 5px;
-    width: 15px;
-    height: 15px;
-}
-
-.checkbox-field .label,
-.checkbox-field .control {
-    vertical-align: middle;
 }
 
 .apply-btn {

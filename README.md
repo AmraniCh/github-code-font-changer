@@ -37,7 +37,6 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 - As of Version 3, changing font size is supported.
 - As of version 2, you can use the fonts installed in your local machine alongside the fonts provided by the extension.
 - Change the font weight for the selected font family.
-- Hide the indentation guides.
 
 ## 🔥 Available Fonts
 
