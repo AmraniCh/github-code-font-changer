@@ -8,7 +8,7 @@
     </br>
     <a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi">
         <img alt="version" 
-            src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=flat-square&logo=Google Chrome&logoColor=white">
+            src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=flat-square&logo=Google%20Chrome&logoColor=white">
     </a>
     <a href="#">
         <img alt="repo code size"
