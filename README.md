@@ -28,6 +28,10 @@
   <sub>Developped and maintained with ❤️ by  <a href="https://github.com/AmraniCh">AmraniCh</a> and <a href="https://github.com/AmraniCh/github-code-font-changer/graphs/contributors">contributors</a>.</sub>
 </p>
 
+<p align="center">
+    <img src="assets/screenshot-font-settings.jpg" alt="Screenshot" width="700px" />
+</p>
+
 #
 
 Unhappy with the boring GitHub code viewer font? You're looking for a way to change it without affecting other website's fonts? Well, this extension is made for you :raised_hands:.
