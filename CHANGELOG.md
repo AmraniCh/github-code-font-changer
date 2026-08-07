@@ -1,5 +1,12 @@
 # Change Log
 
+## v5.0 (2026-08-07)
+
+- Redesigned the popup UI.
+- Supported customizing the code line-height.
+- Added a "Reset" button to restore GitHub's default styles.
+- Dropped the "hide indentation guides" feature.
+
 ## v4.0 (2025-10-09)
 
 - Upgraded code base to manifest V3 [#22](https://github.com/AmraniCh/github-code-font-changer/issues/22).

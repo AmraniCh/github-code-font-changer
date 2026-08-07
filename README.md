@@ -1,7 +1,7 @@
 <br>
 
 <p align="center">
-     <img src="https://github.com/AmraniCh/github-code-font-changer/blob/master/src/images/logo/V2/logo-wide.png?raw=true" alt="GitHub Code Font Changer" width="500px" />
+     <img src="src/images/logo/V5/logo-lockup-light.png" alt="GitHub Code Font Changer" width="500px" />
 </p>
 
 <p align="center">
@@ -36,6 +36,9 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 - As of version 2, you can use the fonts installed in your local machine alongside the fonts provided by the extension.
 - Change the font weight for the selected font family.
+- Change the font size for the selected font family.
+- Customize the code line-height.
+- Reset all customizations back to GitHub's defaults with one click.
 
 ## 🔥 Available Fonts
 
