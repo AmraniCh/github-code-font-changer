@@ -25,7 +25,8 @@ const
     weightsDatalist = document.querySelector('#font_weight_list'),
     weightsDatalistInput = document.querySelector('#font_weight'),
     fontSizeInput = document.querySelector('#font_size'),
-    lineHeightInput = document.querySelector('#line_height');
+    lineHeightInput = document.querySelector('#line_height'),
+    resetButton = document.querySelector('.reset-btn');
 
 
 
@@ -79,6 +80,18 @@ function initEvents(fonts) {
         var lineHeight = lineHeightInput.value;
         sendMessage("applyLineHeight", lineHeight);
         chrome.storage.sync.set({ gt_line_height: lineHeight });
+    });
+
+    addEvent(resetButton, 'click', function() {
+        fontsDatalistInput.value = '';
+        weightsDatalistInput.value = '';
+        fontSizeInput.value = '';
+        lineHeightInput.value = '';
+        weightsDatalist.innerHTML = '';
+
+        chrome.storage.sync.remove(['gt_font_family', 'gt_font_weight', 'gt_font_size', 'gt_font_link', 'gt_line_height']);
+
+        sendMessage("resetStyles");
     });
 }
 

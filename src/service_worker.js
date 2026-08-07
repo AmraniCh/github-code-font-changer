@@ -126,6 +126,16 @@ function applyLineHeight(lineHeight) {
 }
 
 /**
+ * Reloads the active GitHub tab so it drops back to GitHub's default styles
+ */
+function resetStyles() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        if (!tabs[0] || typeof tabs[0].id === 'undefined') return;
+        chrome.tabs.reload(tabs[0].id);
+    });
+}
+
+/**
  * Just a shortcut for the native target.addEventListener
  * @param {DOMElement} ele
  * @param {String} event
@@ -148,6 +158,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             break;
         case 'applyLineHeight':
             applyLineHeight(request.value);
+            break;
+        case 'resetStyles':
+            resetStyles();
             break;
         case 'getFonts':
             sendResponse({ fonts });
