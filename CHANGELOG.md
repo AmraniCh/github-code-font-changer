@@ -6,6 +6,7 @@
 - Supported customizing the code line-height.
 - Added a "Reset" button to restore GitHub's default styles.
 - Dropped the "hide indentation guides" feature.
+- Fixed styles not being applied on the commit (compare) page [#20](https://github.com/AmraniCh/github-code-font-changer/issues/20).
 
 ## v4.0 (2025-10-09)
 
