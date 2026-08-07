@@ -2,45 +2,53 @@
 <html lang="en">
     <head>
         <title>Popup</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" type="text/css" href="./popup.css" />
     </head>
 
     <body>
         <form class="form">
-            <h1 class="title">
-                <img class="logo" src="images/logo/V2/logo-wide.png" />
-            </h1>
-
-            <div class="input-field">
-                <label class="label" for="font_family">
-                    Font: 
-                    <input id="font_family" class="control" list="font_family_list" placeholder="Souce Code Pro.." />
-                    <datalist id="font_family_list"> </datalist>
-                </label>
+            <div class="header">
+                <span class="badge">
+                    <img class="badge-icon" src="images/logo/V5/logo-lockup.png" alt="" />
+                </span>
+                <span class="wordmark">Github Font Changer</span>
             </div>
 
-            <div class="input-field">
-                <label class="label" for="font_weight">
-                    Weight:
+            <div class="fields">
+                <div class="input-field">
+                    <label class="label" for="font_family">Font Name</label>
+                    <input id="font_family" class="control" list="font_family_list" placeholder="Source Code Pro" />
+                    <datalist id="font_family_list"> </datalist>
+                </div>
+
+                <div class="input-field">
+                    <label class="label" for="font_weight">Weight</label>
                     <input id="font_weight" class="control" list="font_weight_list" placeholder="light, medium, bold" />
                     <datalist id="font_weight_list"> </datalist>
-                </label>
-            </div>
+                </div>
 
-            <div class="input-field">
-                <label class="label" for="font_size">
-                    Size:
+                <div class="input-field">
+                    <label class="label" for="font_size">Font Size</label>
                     <input id="font_size" class="control" placeholder="16px, 1em, 1.2rem" />
-                </label>
-            </div>
+                </div>
 
-            <div class="input-field">
-                <label class="label" for="line_height">
-                    Line height:
+                <div class="input-field">
+                    <label class="label" for="line_height">Line Height</label>
                     <input id="line_height" class="control" placeholder="20px, 1.5, 1.5em" />
-                </label>
+                </div>
             </div>
 
+            <p class="note">* Leave a field blank to keep GitHub's default.</p>
+
+            <div class="actions">
+                <button type="button" class="reset-btn">Reset</button>
+            </div>
         </form>
 
         <script src="./popup.js"></script>

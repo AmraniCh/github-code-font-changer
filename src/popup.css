@@ -1,99 +1,123 @@
 :root {
-    --primary-color: #298f8e
+    --ink: #17171a;
+    --paper: #ffffff;
+    --line: #dedad2;
+    --muted: #86827a;
+    --cream: #efe7d8;
+    --cream-hover: #e6d9bf;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--primary-color);
-    font-weight: 500;
 }
 
-input::placeholder {
-    color: var(--primary-color);
-    opacity: .6;
+body {
+    background: var(--paper);
 }
 
 .form {
-    width: 320px;
-    background-color: #fff;
-    border-right: 6px solid var(--primary-color);
-    border-bottom: 6px solid var(--primary-color);
-    padding: 15px 10px 15px 10px;
+    width: 300px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.title {
-    text-align: left;
-    background-color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    padding: 15px 15px;
+.header {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid var(--primary-color);
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--ink);
 }
 
-.title img.logo {
-    width: 100%;
+.badge {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    background: var(--ink);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.title span {
-    font-size: 24px;
-    margin-left: 10px;
+.badge-icon {
+    width: 18px;
+    height: 18px;
 }
 
-.label {
-    font-size: .9rem;
-}
-
-.input-field {
-    margin-bottom: 10px;
-    padding: 0 8px;
-}
-
-.input-field .label::first-letter {
+.wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
     text-transform: uppercase;
+}
+
+.fields {
+    padding: 18px 16px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .input-field .label {
     display: block;
-    margin-bottom: 8px;
-    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .input-field .control {
-    transition: all .1s linear;
-    padding: 8px;
     width: 100%;
-    font-size: 1.2rem;
-    margin-top: 8px;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    padding: 2px 0 8px;
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 14px;
+    color: var(--ink);
 }
 
-.input-field select.control {
-    border: 1px solid #ddd;
-    text-align: center;
+.input-field .control::placeholder {
+    color: var(--muted);
 }
 
 .input-field .control:focus {
-    outline: 3px solid var(--primary-color);
+    outline: none;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 7px;
 }
 
-.apply-btn {
+.note {
+    padding: 10px 16px 16px;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-btn {
     width: 100%;
-    background-color: rgb(9 132 227);
-    padding: 12px 20px;
-    color: rgb(255 255 255);
-    border-radius: 2px;
     border: none;
-    cursor: pointer;
-    margin-top: 35px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .05em;
     text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background: var(--cream);
+    color: var(--ink);
+    border-top: 1px solid var(--ink);
 }
 
-.apply-btn:hover {
-    opacity: 0.8;
+.reset-btn:hover {
+    background: var(--cream-hover);
 }
