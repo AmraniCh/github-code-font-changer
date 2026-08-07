@@ -65,7 +65,7 @@ You can download this extension via :
 
 ### Via Chrome Store
 
-<a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi"> <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/iNEddTyWiMfLSwFD6qGq.png"/></a>
+<a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi"> <img src="https://developer.chrome.com/static/docs/webstore/branding/image/iNEddTyWiMfLSwFD6qGq.png"/></a>
 
 ### Manual Installation Using Developer Mode
 
