@@ -26,34 +26,14 @@ body {
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 16px;
+    padding: 16px 28px;
     border-bottom: 1px solid var(--ink);
 }
 
-.badge {
-    flex: none;
-    width: 30px;
-    height: 30px;
-    background: var(--ink);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.badge-icon {
-    width: 18px;
-    height: 18px;
-}
-
-.wordmark {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    text-transform: uppercase;
+.header .logo {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .fields {
