@@ -1,11 +1,9 @@
-<br>
 
 <p align="center">
-     <img src="src/images/logo/V5/logo-lockup-light.png" alt="GitHub Code Font Changer" width="500px" />
+     <img src="src/images/logo/V5/logo-lockup-light.png" alt="GitHub Code Font Changer" width="350px" />
 </p>
 
 <p align="center">
-    </br>
     <a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi">
         <img alt="version" 
             src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=flat-square&logo=Google%20Chrome&logoColor=white">
@@ -29,7 +27,7 @@
 </p>
 
 <p align="center">
-    <img src="assets/screenshot-font-settings.jpg" alt="Screenshot" width="700px" />
+    <img src="assets/screenshot-font-settings.jpg" alt="Screenshot" width="" />
 </p>
 
 #
