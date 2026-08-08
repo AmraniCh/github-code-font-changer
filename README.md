@@ -40,12 +40,12 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 
 ## 🚀 Features
 
-- As of version 2, you can use the fonts installed in your local machine alongside the fonts provided by the extension.
-- Change the font weight for the selected font family.
-- Change the font size for the selected font family.
-- Customize the code line-height.
-- Styles also apply to code snippets in README and markdown files.
-- Reset all customizations back to GitHub's defaults with one click.
+- **14+ built-in fonts** — or type the name of any font installed on your machine.
+- **Font size** — go compact for dense diffs or larger for easy reading.
+- **Font weight** — from light to bold, whatever suits your screen.
+- **Line height** — loosen cramped code or tighten sprawling files.
+- **README & markdown support** — styles apply to code snippets everywhere on GitHub.
+- **One-click reset** — restore GitHub's defaults instantly.
 
 ## 🔥 Available Fonts
 
