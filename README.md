@@ -8,6 +8,10 @@
         <img alt="version" 
             src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=flat-square&logo=Google%20Chrome&logoColor=white">
     </a>
+    <a href="https://gtfontchanger.amranich.dev">
+        <img alt="website" 
+            src="https://img.shields.io/badge/website-gtfontchanger.amranich.dev-1a1a1a?style=flat-square">
+    </a>
     <a href="#">
         <img alt="repo code size"
             src="https://img.shields.io/github/languages/code-size/AmraniCh/github-code-font-changer?color=critical&style=flat-square">

@@ -872,6 +872,18 @@ a {
   color: var(--foreground);
 }
 
+.footer-credit {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px 16px;
+  text-align: center;
+}
+
+.footer-credit span {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
 .footer-disclaimer {
   max-width: 1180px;
   margin: 0 auto;
@@ -918,6 +930,10 @@ a {
 
   .footer-inner {
     padding: 20px;
+  }
+
+  .footer-credit {
+    padding: 0 20px 12px;
   }
 
   .footer-disclaimer {
