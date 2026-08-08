@@ -1,7 +1,8 @@
 # Change Log
 
-## v5.1 (2026-08-08)
+## v5.2 (2026-08-08)
 
+- Added a project landing page at [gtfontchanger.amranich.dev](https://gtfontchanger.amranich.dev).
 - Supported applying font styles to README code snippets.
 
 ## v5.0 (2026-08-07)

@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Code Font Changer for GitHub",
     "description": "Change and customize the boring GitHub code viewer font",
-    "version": "5.0",
+    "version": "5.2",
     "icons": {
         "16": "images/logo/V5/icon-16.png",
         "48": "images/logo/V5/icon-48.png",
