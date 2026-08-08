@@ -1,5 +1,9 @@
 # Change Log
 
+## v5.1.0 (2026-08-08)
+
+- Supported applying font styles to README code snippets.
+
 ## v5.0 (2026-08-07)
 
 - Redesigned the popup UI.

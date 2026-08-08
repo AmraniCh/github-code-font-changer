@@ -40,6 +40,7 @@ Unhappy with the boring GitHub code viewer font? You're looking for a way to cha
 - Change the font weight for the selected font family.
 - Change the font size for the selected font family.
 - Customize the code line-height.
+- Styles also apply to code snippets in README and markdown files.
 - Reset all customizations back to GitHub's defaults with one click.
 
 ## 🔥 Available Fonts
