@@ -734,7 +734,8 @@ a {
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+  justify-content: center;
   gap: 20px;
 }
 
@@ -742,8 +743,19 @@ a {
   padding: 26px 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 18px;
   height: 100%;
+}
+
+.review-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star-icon {
+  width: 16px;
+  height: 16px;
+  fill: #f5a623;
 }
 
 .review-text {
@@ -776,9 +788,23 @@ a {
   font-weight: 600;
 }
 
-.review-role {
+.review-meta {
   font-size: 12.5px;
   color: var(--muted-foreground);
+}
+
+.reviews-link {
+  display: block;
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  transition: color 150ms;
+}
+
+.reviews-link:hover {
+  color: var(--foreground);
 }
 
 /* ── CTA ── */
