@@ -20,7 +20,7 @@ var /**
         Atma: 'https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap',
     },
     selectors = {
-        code: '.blob-code-inner, .react-code-text, .react-blob-print-hide, .ͼ1 .cm-line'
+        code: '.blob-code-inner, .react-code-text, .react-blob-print-hide, .ͼ1 .cm-line, .markdown-body .highlight pre, .markdown-body pre'
     };
 
 // add a listener to tabs.onUpdated event
