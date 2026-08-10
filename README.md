@@ -6,23 +6,23 @@
 <p align="center">
     <a href="https://chrome.google.com/webstore/detail/github-code-font-changer/jmbophfanmlfkloliildahlpnlbojhfi">
         <img alt="version" 
-            src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=flat-square&logo=Google%20Chrome&logoColor=white">
+            src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=logo=Google%20Chrome&logoColor=white">
     </a>
     <a href="https://gtfontchanger.amranich.dev">
         <img alt="website" 
-            src="https://img.shields.io/badge/website-gtfontchanger.amranich.dev-1a1a1a?style=flat-square">
+            src="https://img.shields.io/badge/website-gtfontchanger.amranich.dev-1a1a1a">
     </a>
     <a href="#">
         <img alt="repo code size"
-            src="https://img.shields.io/github/languages/code-size/AmraniCh/github-code-font-changer?color=critical&style=flat-square">
+            src="https://img.shields.io/github/languages/code-size/AmraniCh/github-code-font-changer?color=critical">
     </a>
     <a href="https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE">
         <img alt="license" 
-            src="https://img.shields.io/github/license/AmraniCh/github-code-font-changer?style=flat-square" />
+            src="https://img.shields.io/github/license/AmraniCh/github-code-font-changer" />
     </a>
     <a href="#">
         <img alt="lang" 
-            src="https://img.shields.io/badge/lang-Pure%20JavaScript-yellow?style=flat-square" />
+            src="https://img.shields.io/badge/lang-Pure%20JavaScript-yellow" />
     </a>
 </p>
 
