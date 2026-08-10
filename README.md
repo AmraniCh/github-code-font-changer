@@ -27,11 +27,11 @@
 </p>
 
 <p align="center">
-  <sub>Developped and maintained with ❤️ by  <a href="https://github.com/AmraniCh">AmraniCh</a> and <a href="https://github.com/AmraniCh/github-code-font-changer/graphs/contributors">contributors</a>.</sub>
+    <img src="assets/screenshot-font-settings.jpg" alt="Screenshot" width="" />
 </p>
 
 <p align="center">
-    <img src="assets/screenshot-font-settings.jpg" alt="Screenshot" width="" />
+  <sub>Developped and maintained with ❤️ by  <a href="https://github.com/AmraniCh">AmraniCh</a> and <a href="https://github.com/AmraniCh/github-code-font-changer/graphs/contributors">contributors</a>.</sub>
 </p>
 
 #
