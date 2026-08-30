@@ -8,6 +8,10 @@
         <img alt="version" 
             src="https://img.shields.io/chrome-web-store/v/jmbophfanmlfkloliildahlpnlbojhfi?style=logo=Google%20Chrome&logoColor=white">
     </a>
+    <a href="#">
+        <img alt="users"
+            src="https://img.shields.io/chrome-web-store/users/jmbophfanmlfkloliildahlpnlbojhfi?logo=Google%20Chrome&logoColor=white">
+    </a>
     <a href="https://gtfontchanger.amranich.dev">
         <img alt="website" 
             src="https://img.shields.io/badge/website-gtfontchanger.amranich.dev-1a1a1a">
@@ -19,10 +23,6 @@
     <a href="https://github.com/AmraniCh/github-code-font-changer/blob/master/LICENSE">
         <img alt="license" 
             src="https://img.shields.io/github/license/AmraniCh/github-code-font-changer" />
-    </a>
-    <a href="#">
-        <img alt="lang" 
-            src="https://img.shields.io/badge/lang-Pure%20JavaScript-yellow" />
     </a>
 </p>
 
