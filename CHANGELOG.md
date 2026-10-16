@@ -1,5 +1,9 @@
 # Change Log
 
+## v5.3 (2026-10-17)
+
+- Fixed font styles not applying to pull request diffs [#23](https://github.com/AmraniCh/github-code-font-changer/issues/23).
+
 ## v5.2 (2026-08-08)
 
 - Added a project landing page at [gtfontchanger.amranich.dev](https://gtfontchanger.amranich.dev).
